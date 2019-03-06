@@ -20,6 +20,7 @@ from django.contrib import admin
 from rest_framework import routers
 
 from user.views import UserViewSet
+from user.views import current_user
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -32,6 +33,7 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/(?P<version>(v1))/', include(router.urls)),
-    url(r'^api-token-auth/', views.obtain_auth_token)
+    url(r'^api-token-auth/', views.obtain_auth_token),
+    url(r'me/$', current_user),
 
 ]

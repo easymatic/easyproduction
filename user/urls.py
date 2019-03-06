@@ -10,4 +10,5 @@ router.register(r'user', views.UserViewset)
 
 urlpatterns = [
     url(r'', include(router.urls)),
+
 ]
